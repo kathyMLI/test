@@ -11,6 +11,7 @@ Teacher.destroy_all
 Course.destroy_all
 Student.destroy_all
 Evaluation.destroy_all
+Grade.destroy_all
 
 teacher = Teacher.create([{ :name => 'Carla' }, { :name => 'Ana' }])
 
@@ -22,6 +23,10 @@ course = Course.create([{:name => 'Programación', :teacher => teacher.first},
 
 evaluation = Evaluation.create([{ :course => course.first }, { :course => course.second }])
 
+grade = Grade.create([{:evaluation => evaluation.first,:student => student.first, :mark => 7.5}])
+
+
+
 ###################
 student = Student.find_by(name: 'Maxo')
 
@@ -29,6 +34,6 @@ student.courses << Course.find_by(name: 'Programación')
 s = student.courses
 idTeacher = s.take.teacher_id
 
-pp evaluation
+pp grade
 p "Created tables"
 
