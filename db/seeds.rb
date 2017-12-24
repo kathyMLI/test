@@ -9,8 +9,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Teacher.destroy_all
 Course.destroy_all
+Student.destroy_all
 
 teacher = Teacher.create([{ :name => 'Carla' }, { :name => 'Ana' }])
-Course.create(:name => 'Programación', :teacher => teacher.first)
 
+student = Student.create([{ :name => 'Maxo' }, { :name => 'Jeldes' }])
+
+course = Course.create(:name => 'Programación', :teacher => teacher.first)
+
+student = Student.find_by(name: 'Maxo')
+
+###################
+
+student.courses << Course.find_by(name: 'Programación')
+s = student.courses
+idTeacher = s.take.teacher_id
+
+pp Teacher.find_by(id: idTeacher).name
 p "Created tables"
+
