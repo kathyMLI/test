@@ -1,0 +1,18 @@
+<h1>Courses#index</h1>
+<p>Find me in app/views/courses/index.html.erb</p>
+<h2> Lista de cursos </h2>
+<p> Crear nueva tarea </p>
+<ul>
+   <% @courses.each do |t| %>
+   <li>
+     <h3> <%= t.students %> </h3>
+     <ul>
+     	 <% t.students.each do |u| %>
+     	<li>
+     	<h3> <%= u.name %> </h3> 
+     	</li>
+     	   <% end %>
+     </ul>
+   </li>
+   <% end %>
+</ul>
